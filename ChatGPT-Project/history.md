@@ -1,7 +1,7 @@
 # Learning about art, language, coding, and project development
 
-## Using chatGPT to generate and then code a generative art project 
-### ;or, learning to code
+## Using chatGPT to generate and then code a generative art project
+### or, learning to code
 
 **produce a generative art project ruleset using only dice, the KJV bible, and a notepad**
 
@@ -45,7 +45,7 @@
 	4. (15) Anyone who receives instruction in the world must share all good things with his instructor.
 	5. (4) How long, O Lord?
 	6. (13) What will he do to you, and what more besides, O deceitful tongue?
-	7. Error: Null
+	7. Error: out of bounds
 		1. Selected page number (888) out of bounds, maximum page range exceeded (766)
 		2. Exit
 
@@ -163,6 +163,8 @@ I guess I have a abstract data I can do stuff with now though, so that should be
 
 
 ---
+### Other Colour Ideas
+
 Colours and RGB values - I had at this point still thoughts about latent colour space definied by ranges of RGB values - limited by some element of the selected phrases so I did things like this:
 
 	Sure, here is the rest of the list converted to RGB colours:
@@ -192,13 +194,14 @@ Colours and RGB values - I had at this point still thoughts about latent colour 
 	#697368 = rgb(105,115,104)
 	#3F2200 = rgb(63,34,0)
 
-*It was at this point I decided doing what I was trying to do on paper first wasn't really going to work as I suddenly had gone from having 9 sentences I could reasonbly deal with to hundreds of hex codes which I could not.*
+*It was at this point I decided doing what I was trying to do on paper first wasn't really going to work as I suddenly had gone from having 9 sentences I could reasonably deal with to hundreds of hex codes which I could not.*
 
 I'm going to truncate the next part into it's own chatlog page which is [here](ChatGPTAlgo_log4.md)
 
-Which will create a strange break here if you've not gone through, but heyo - life's too short quite a lot of the time to go and look at everything, I think thisn one might be worth it though.
+Which will create a strange break here if you've not gone through, but heyo - life's too short quite a lot of the time to go and look at everything, I think this one might be worth it though.
 
 ---
+### Summary to point
 
 *Had to take a break from the project to go see BadBadNotGood - was dope, but on reflection I am going to take a slightly different approach to creating the final image.
 
@@ -237,6 +240,7 @@ Which will create a strange break here if you've not gone through, but heyo - li
 	8.	6		25		150
 	9.	8 		15		71
 ---
+### Towards Javascript - Encoding the Algorithm
 
 *Please can you write a javascript snippet which performs the following algorithm*
 
@@ -316,6 +320,7 @@ Which will create a strange break here if you've not gone through, but heyo - li
 At this point the chatlog turns into just coding which is encapsulated in [here](ChatGPTAlgo_log5.md)
 
 ---- 
+### Error Testing 
 
 Which I think gets interesting again when I ran into an error in the testing environment.
 
@@ -539,11 +544,8 @@ So back to GPT
 
 *I'm sure I can do this one myself.*
 
-
-
-
 ----
-
+### A Discussion on Probability
 
 *We've taken a break from note taking, but this is too good not to loose from the GPT logs. Discussing probability in relation to the process we're building to segment the canvas into sections.*
 
@@ -555,7 +557,7 @@ So back to GPT
 		0.0873015873015873 + 0.09523809523809523 + 0.06746031746031746 + 0.15476190476190477 + 0.1626984126984127 + 0.1626984126984127 + 0.1111111111111111 + 0.0992063492063492 + 0.05952380952380952 = 1.2698412698412698
 		As you can see, the sum of these numbers is 1.2698412698412698, which is not equal to one.
 
-
+*Can we alter this code to return the length of each string in the array as a proportion of the total length of all arrays
 
 	function getStringLengths(strings) {
 	  // total number of words in all strings
@@ -569,7 +571,6 @@ So back to GPT
 	const lengths = getStringLengths(phraseProportions);
 	console.log(lengths);
 
-*Can we alter this code to return the length of each string in the array as a proportion of the total length of all arrays
 
 	Yes, you can alter this code to return the length of each string in the array as a proportion of the total length of all strings. Here is how you can do that:
 	
@@ -588,8 +589,6 @@ So back to GPT
 	In this updated code, we are using the .reduce() method to calculate the total length of all strings in the strings array. Then, we are using the .map() method to return an array of each string's length as a proportion of the total length of all strings.
 	
 	Note that in the original code, the .split() method was used to split each string into an array of words, and then the length of that array was used to calculate the proportion. In the updated code, we are using the .length property of each string to calculate its length, and then using that length to calculate the proportion.
-
-
 
 [0.09176470588235294, 0.0996078431372549, 0.06588235294117648, 0.1380392156862745, 0.16470588235294117, 0.15215686274509804, 0.11294117647058824, 0.1192156862745098, 0.05568627450980392]
 *do these add to one?
@@ -612,7 +611,6 @@ So back to GPT
 	For example, if you have a set of possible outcomes (such as the phrases in your example), and each outcome has a certain probability or chance of occurring, then the sum of the probabilities or chances of all possible outcomes should be equal to 1. This is because the probabilities or chances represent the likelihood of each outcome occurring, and the likelihood of all possible outcomes occurring together should be equal to 1 (since either one of the outcomes will occur, or none of them will occur).
 	
 	So, even in the context of representing chances or probabilities, it would not be acceptable for the sum of these numbers to be almost equal to 1, but not exactly equal to 1. However, as I mentioned before, it is possible that the small difference between the sum of these numbers and 1 is due to rounding error or other factors. In that case, you may be able to accept the numbers as being close enough to representing probabilities or chances. But again, it is important to carefully consider the potential sources of error and whether they are acceptable before making that decision.
-
 
 *How would we alter the code above to make sure the resulting array sums to one? I can send it again if we need*
 	
@@ -673,6 +671,121 @@ So back to GPT
 
 ---
 ----
+## Part 2. - 13/12/22
 
-[History pt. 2](history2.md)
+Asking GPT to change the way this code is laid out? (I'll need to spin up a git repository to get a proper commit history.
 
+It's basically just the code gpt already wrote to colour the canvas and rotate it, just I keep breaking the rotate thing, it worked once but I didn't save the output.
+
+---
+
+*can we change the way this code is laid out to make it easier to read and understand.
+
+	Sure, we can definitely change the way this code is laid out to make it easier to read and understand. Here is one way we could do it:
+	
+		// Function to color the canvas using the given palette percentages
+		function colorCanvas(canvas, PalPerc) {
+		  // Get the 2D context of the canvas
+		  const ctx = canvas.getContext("2d");
+		
+		  // Calculate the total sum of the percentages
+		  const totalPercentage = PalPerc.reduce((sum, segment) => {
+		    const [percentage] = segment.split(" - [");
+		    return sum + parseInt(percentage);
+		  }, 0);
+		
+		  // Calculate the height of each segment based on its percentage
+		  const segmentHeight = canvas.height / totalPercentage;
+		
+		  // Loop through the segments
+		  for (let i = 0; i < PalPerc.length; i++) {
+		    // Parse the percentage and palette from the current segment
+		    const [percentage, palette] = PalPerc[i].split(" - [");
+		    const colors = palette.split(", ");
+		
+		    // Calculate the starting y coordinate of the segment
+		    const y = i * segmentHeight;
+		
+		
+		    // Calculate the height of the segment based on its percentage value
+		    const height = segmentHeight * parseInt(percentage);
+		
+		    // Loop through the pixels in the segment
+		    for (let x = 0; x < canvas.width; x++) {
+		      for (let y = i * height; y < (i + 1) * height; y++) {
+		        // Choose a random color from the palette
+		        const color = colors[Math.floor(Math.random() * colors.length)];
+		
+		        // Set the pixel color
+		        ctx.fillStyle = color;
+		        ctx.fillRect(x, y, 1, 1);
+		        
+		      }
+		    }
+		  } 
+		}
+		
+		// Function to rotate the canvas
+		function rotateCanvas(canvas, maxrotate, rotation) {
+		  // Loop through the maxrotate
+		
+
+
+*what other options are there for ctx.globalCompositeOperation?*
+
+	There are several options for the ctx.globalCompositeOperation property, including:
+	
+	"source-over" (the default value) - the new content is drawn on top of the existing content
+	"source-in" - the new content is drawn only where it intersects with the existing content
+	"source-out" - the new content is drawn only where it does not intersect with the existing content
+	"source-atop" - the new content is drawn only where it intersects with the existing content, and is placed above the existing content
+	"destination-over" - the existing content is drawn on top of the new content
+	"destination-in" - the existing content is drawn only where it intersects with the new content
+	"destination-out" - the existing content is drawn only where it does not intersect with the new content
+	"destination-atop" - the existing content is drawn only where it intersects with the new content, and is placed above the new content
+	"lighter" - the new and existing content is drawn together, and the result is the sum of the color values
+	"copy" - the new content replaces the existing content
+	"xor" - the new content is drawn only where it does not intersect with the existing content, and the existing content is drawn only where it does not intersect with the new content
+	"multiply" - the new and existing content is drawn together, and the result is the product of the color values
+
+----
+
+It got too late and I got a bit too stoned to record the whole process properly, but I had a good time so there's that, definitely lost some really useful stuff along the way, but that's life.
+
+There'll forever be the bunch of stuff I never wrote about this but here we are.
+
+Just going to put the gallery of all the ChatGPT code generated outputs up to this point - I think all the relevant code was saved via copy paste to the original version of this document, but I am not sure.
+
+1. ![[1.png]]
+2. ![[2.png]]
+3. ![[3.png]]
+4. ![[4..png]]
+5. ![[5.png]]
+6. ![[6.png]]
+7. ![[7.png]]
+
+I sent 7 and image 6 to Ryan with a brief explainer about what it's doing to get there.
+
+And have subsequently had thoughts about how to proceed with the algorithm for drawing.
+
+* I really don't know why it's not filling in the entire image, but really like that it's not.
+* I think using this as a noise grid to manipulate another image would be interesting. Can re-use and alter the bit around the second drawing to blend differently.
+* Aside, it could be interesting to convert the ascii to coordinates rather than colours, and use those as starting points to colour the canvas in from. Where the speed of colouring is controlled by the proportional chance variable and the colours are abstracted from some other data conversion from the words in the strings, or the first x characters - and then we pick from a defined set of palettes because that'll be more interesting.
+* I think using coordinates abstracted from random data is more interesting than colours. 
+* We could join all the points in the phrases together following some walking algorithm. Then do something with the resulting shapes.
+* ie, fill all the enclosed spaces in, rotate the shape, draw in lines between some of the points in colours nearby the colours they're surrounded by, then offset that by some amount. Fill the shapes in again with the same colours and blend them in some way. 
+* Then apply as a noise altering function the drawing algorithm we've arrived at previously.
+* Which I'll have to save and test converting to fx variables to. Hopefully the sandbox helps with that.
+
+I am considering minting Image 7. or the code that produces it in a slightly adapted form so that it's in a capacity deterministically 'generative'
+
+The task to ingest all of the bible might have to become it's own element to the project, I think it could be quite a bit of compute to dedicate to abstract data generation - maybe there's a way of splitting the parts up, or phrases up into 'pages' that could be iterated over as a physical book would be - limiting the amount of data that would need to be ingested by the algorithm to produce the dataset it will use to produce an output.
+
+----fin.
+
+---
+## Christmas weekend Algorithm developmental outputs.
+
+![[ooy86uaHMC5zqfosuFsmhYk2QXpFXsfdgHHjBjPY78tsSwRVBuU.png]]
+
+[Home](Home.md)
